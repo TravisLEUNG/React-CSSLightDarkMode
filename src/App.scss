@@ -1,0 +1,85 @@
+#root {
+  width: 100%;
+  height: auto;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+/* /////////////////////// */
+/* (General) Schema styles */
+$white-color: #dedede;
+$dark-color: #323232;
+
+.light {
+  background-color: $white-color;
+  color: $dark-color;
+}
+
+.dark {
+  background-color: $dark-color;
+  color: $white-color;
+}
+
+/* //////////////////// */
+/* Schema Toggle styles */
+.schema-toggle {
+  display: flex;
+  align-items: center;
+
+  p {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0 10px;
+  }
+
+  input {
+    position: absolute !important;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    bottom: 0;
+  }
+
+  label {
+    display: inline-block;
+    position: relative;
+    height: 44px;
+    width: 90px;
+
+    cursor: pointer;
+    font-size: 0;
+    color: transparent;
+    border-radius: 22px;
+
+    transition: background-color 500ms ease;
+
+    &:after {
+      content: "";
+      display: block;
+      height: 40px;
+      width: 40px;
+      position: absolute;
+      top: 2px;
+      right: 48px;
+      border-radius: 50%;
+
+      transition: right 500ms ease, background-color 500ms ease, box-shadow 500ms ease;
+
+      background-color: $white-color;
+      box-shadow: 2px 0px 0px rgba($white-color, 0.1);
+    }
+  }
+
+  input:checked + label:after {
+      right: 2px;
+      background-color: $dark-color;
+      box-shadow: -2px 0px 0px rgba($dark-color, 0.1);
+    }
+}
